@@ -1,0 +1,256 @@
+### CHANGE log for package oligoClasses ###
+
+Changes made by Matt Settles 12-4-2008
+
+** All changes should generally have effect on only Affy Tiling, ST and expression arrays.
+added classes AffyExonPDInfo and AffySTPDInfo
+
+03-09-09 - Benilton Carvalho - committed version 1.5.6
+
+** Small changes to reduce duplication of code for Gene and Exon Affymetrix arrays.
+
+03-11-09 - Benilton Carvalho - committed version 1.5.7
+
+** Added accessors for Affy Tiling arrays.
+
+03-17-09 - Benilton Carvalho - committed version 1.5.11
+
+** Generalized bg/bgindex methods for FeatureSet objects.
+
+03-18-09 - Benilton Carvalho - committed version 1.5.12
+
+** Fixed all warnings so it passes CHECK.
+
+03-20-09 - R. Scharpf - committed version 1.5.14
+** Removed requirement that chromosome be stored as a character string in oligoSnpSet featureData slot
+** Removed calculateCopyNumber.Rd file
+
+03-23-09 - R. Scharpf - committed version 1.5.15
+** Removed requirement that chromosome be stored as a character string in SnpCallSet and SnpCopyNumberSet
+
+03-24-09 - B Carvalho - committed version 1.5.16
+
+** Removed unused TilingQSet-class
+
+** Redefined sampleNames method for FeatureSet-like objects so it returns a vector. Because I changed FeatureSet (it now contains "NChannelSet" instead of "eSet"), sampleNames() would return a list (on "NChannelSet", elements of assayData are allowed to have different colnames). For the applications I foresee oligo being used, this (different colnames) should not be the case...
+
+** Changed definition of FeatureSet. Instead of 'eSet', it contains "NChannelSet".
+
+** Added TilingFeatureSet2 class, with two channels, to accommodate 2-colors applications of Tiling arrays.
+
+03-25-2009 - B Carvalho
+
+** Changes to accommodate sequence methods
+
+** Added slot annotation to PDInfo, so we can easily find any information about the object.
+
+03-25-2009 - B Carvalho
+
+** Removed lots of unneeded things from NAMESPACE
+
+** Implemented better definitions in NAMESPACE
+
+** Fixed problem with sampleNames dispatching a warning.
+
+04-07-2009 - R Scharpf  committed v1.5.19
+
+** Removed chromosome requirement in setValidity for oligoSnpSet, SnpCallSet, and SnpCopyNumberSet
+
+04-07-2009 - R Scharpf committed v1.5.20
+
+** Changed initialization method for oligoSnpSet and SnpCopyNumberSet
+
+04-16-2009 - B Bcarvalho committed v 1.5.23
+
+** Cleaned up code
+
+05-07-2009 - B Bcarvalho committed v 1.7.1
+
+** Cleaned up code
+
+06-19-2009 - B Carvalho committed v 1.7.5
+
+** Fixed mmSequence
+
+07-17-2009 - B Carvalho committed v 1.7.7
+
+** Extended pmChr to TilingFeatureSet2
+
+07-25-2009 - B Carvalho committed v 1.7.9
+
+** Removed annotation from show method
+
+08-05-2009 - B Carvalho committed v 1.7.10
+
+** Added automatic downloarder/installer pdPkgFromBioC()/requireAnnotation() to be used with annotation packages
+
+** Added requireAnnotation, which is pretty much require() if the pkg is installed... and installs it, without asking, ortherwise.
+
+08-06-2009 - B Carvalho committed v 1.7.10
+
+** For the moment, I don't think pdPkgFromBioC/requireAnnotation need to be exposed in NAMESPACE
+
+09-01-2009 - B Carvalho committed v 1.7.12
+
+** requireAnnotation back in NAMESPACE
+
+09-01-2009 - B Carvalho committed v 1.7.13
+
+** bgindex now sorted
+
+09-27-2009 - B Carvalho committed v 1.7.15
+
+** added documentation to pdPkgFromBioC and requireAnnotation
+
+09-29-2009 - B Carvalho committed v 1.7.16
+
+** svn add documentation
+
+10-28-2009 - R. Scharpf committed v 1.9.1
+
+** export TilingFeatureSet2, QuantificationSet
+
+11-19-2009 - R. Scharpf committed v 1.9.2
+
+** changed definition of SnpCallSetPlus extends SnpSet and SnpQSet
+
+12-01-2009 - R. Scharpf committed v 1.9.7
+
+** removed SnpLevelSet
+** oligoSnpSet extends SnpSet
+
+12-02-2009 - B. Carvalho committed v 1.9.9
+
+** moved several methods to oligo
+** trying to keepp only accessors and replace methods in oligoClasses
+** exposing callsConfidence - until it comes from Biobase
+
+12-10-2009 - B. Carvalho committed v 1.9.15
+
+** added intensityFile slot to FeatureSet class, it'll be NA for regular
+     use and the filename (full) for persistent storage
+
+12-19-2009 - R. Scharpf committed v 1.9.17
+
+** added man pages for AlleleSet, SnpSuperSet, and CNSet
+
+12-20-2009 - R. Scharpf committed v 1.9.19
+
+** removed SnpLevelClasses Vignette and supporting documents in inst/doc
+** added man/Snp-methods.Rd 
+** added man/list.cefiles.Rd
+
+12-23-2009 - R. Scharpf committed v 1.9.21
+
+** removed IRanges dependency.  Added a few .Rd files.  Note IRanges
+   is still loaded because of Biostrings dependency on IRanges.  Do we
+   need Biostrings?
+
+12-30-2009 - R. Scharpf committed v 1.9.22
+
+** removed segmentData from initialization method for CNSet objects
+
+01-23-2010 - B. Carvalho committed v 1.9.25
+
+** exported bothStrands()
+
+01-28-2010 - B. Carvalho committed v 1.9.26
+
+** changed confs() slightly to agree with oligo
+
+02-07-2010 - B. Carvalho (1.9.27)
+
+** Updated requirement on affyio so Win64 is supported
+
+02-20-2010 - R. Scharpf (1.9.28)
+
+** Added CopyNumberSet class as a container for total copy number with
+   no slots for genotypes. (Mainly for use with VanillaICE)
+
+** Defined methods for db, chromosome, position, and isSnp at the
+   level of eSet (formerly, these were defined at the SnpSet level). I
+   did this so that CopyNumberSet, which extends eSet directly, could
+   inherit these methods
+
+02-20-2010 - R. Scharpf (1.9.29)
+
+** modified initialization method for SnpSet.  I would have preferred
+   to modify the initialization in VanillaICE, but I had problems with
+   this
+
+02-20-2010 - R. Scharpf (1.9.30)
+
+** moved A, B accessors from crlmm to oligoClasses.  Updated a few of the man pages.
+** added oligoClasses.Rnw vignette
+
+03-04-2010 - B Carvalho (1.9.32)
+
+** exposed DBPDInfo, ExpressionPDInfo, FeatureSet, TilingPDInfo
+** fixed NEWS file
+
+03-10-2010 - R.Scharpf (1.9.35)
+
+** export A<-, B<- for AlleleSet
+
+03-10-2010 - B Carvalho (1.9.37)
+
+** adding ff utilities to be used in oligo and crlmm
+** adding tools to diagnose cluster/large dataset support
+** (1.9.39) fixed broken export and added p2i/i2p functions to simplify future changes on the conversion
+** (1.9.40) fixed oligoProbeset/oligoSamples to be ocProbesets/ocSamples
+** (1.9.41) fixed unload / docs
+
+03-20-2010 - B Carvalho (1.9.44)
+
+** fixed bugs that broke oligo::crlmm (initialization method for AlleleSet and getM/getA)
+
+03-22-2010 - B Carvalho (1.9.45)
+
+** add some docs
+** commented out example (CNSet) the breaks completely the build process
+** added eval=FALSE on the vignette on the relevant part so the pkg can be built
+** fixed initialization for CNSet to conform changes on 1.9.44.
+
+03-22-2010 - B Carvalho (1.9.46)
+
+** fixed is.ffmatrix example
+** fixed alias for allele
+
+03-31-2010 - B Carvalho (1.9.50)
+
+** moved initializeBigMatrix and initializeBigVector from crlmm to oligoClasses
+
+03-31-2010 - R. Scharpf (1.9.51)
+
+** added a few Rd files
+
+04-03-2010 - R. Scharpf (1.9.52)
+
+** added a few Rd files
+
+04-04-2010 - R. Scharpf (1.9.53)
+
+** addFeatureAnnotation.crlmm provides a warning rather than perform a
+   subset operation on the eSet object.  Subset operations are
+   dangerous with ff objects
+
+04-08-2010 - B Carvalho (1.9.54)
+
+** moved NEWS to inst/
+
+04-10-2010 - B Carvalho (1.9.55)
+
+** initializeBig(Vector/Matrix) get a 'initdata' argument
+
+05-22-2010 - R. Scharpf (1.11.1)
+
+** fixed man page for requireClusterPkgSet.  Added integerScoreToProbability function.
+
+06-30-2010 - R. Scharpf (1.11.2)
+
+** added checkExists utility to oligoClasses package 
+(checks objects in workspace or specified file directory before executing a function)
+
+10-29-2010 - B Carvalho (1.13.2)
+
+** removed man/flags.rda

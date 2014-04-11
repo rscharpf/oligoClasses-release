@@ -1,0 +1,53 @@
+Package: oligoClasses
+Version: 1.26.0
+Title: Classes for high-throughput arrays supported by oligo and crlmm
+Author: Benilton Carvalho and Robert Scharpf
+Maintainer: Benilton Carvalho <beniltoncarvalho@gmail.com> and Robert Scharpf <rscharpf@jhsph.edu>
+Depends:  R (>= 2.14)
+Imports:  BiocGenerics (>= 0.3.2), Biobase (>= 2.17.8), methods, graphics, IRanges (>= 1.13.30), GenomicRanges, Biostrings (>= 2.23.6), affyio (>= 1.23.2), ff, foreach, BiocInstaller, utils
+Enhances: doMC, doMPI, doSNOW, doParallel, doRedis
+Suggests: RSQLite, hapmapsnp5, hapmapsnp6,
+          pd.genomewidesnp.6,
+	  pd.genomewidesnp.5,
+	  pd.mapping50k.hind240,
+	  pd.mapping50k.xba240,
+	  pd.mapping250k.sty,
+	  pd.mapping250k.nsp,
+	  genomewidesnp6Crlmm (>= 1.0.7),
+	  genomewidesnp5Crlmm (>= 1.0.6),
+	  crlmm,
+	  SNPchip,
+	  VanillaICE,
+	  RUnit,
+	  human370v1cCrlmm
+Description: This package contains class definitions, validity checks, and initialization methods for classes used by the oligo and crlmm packages.
+License: GPL (>= 2)
+LazyLoad: yes
+Collate:  AllClasses.R
+          AllGenerics.R
+	  utils-general.R
+	  utils-lds.R
+	  utils-parallel.R
+	  methods-gSet.R
+          initialize-methods.R
+          methods-AlleleSet.R
+	  methods-AnnotatedDataFrame.R
+          methods-FeatureSet.R
+	  methods-AssayData.R
+          methods-SnpFeatureSet.R
+	  methods-oligoSnpSet.R
+	  methods-CopyNumberSet.R
+	  methods-CNSet.R
+          methods-PDInfo.R
+	  methods-RangedDataCNV.R
+	  methods-SnpSet.R
+	  methods-GenomeAnnotatedDataFrame.R
+	  methods-BeadStudioSet.R
+	  methods-BeadStudioSetList.R
+	  methods-gSetList.R
+	  methods-GRanges.R
+	  methods-SummarizedExperiment.R
+          show-methods.R
+	  functions.R
+	  zzz.R
+biocViews: Infrastructure

@@ -1,0 +1,157 @@
+## oligoClasses NAMESPACE
+##---------------------------------------------------------------------------
+## Import
+##---------------------------------------------------------------------------
+## methods
+importMethodsFrom(methods, initialize, show)
+importFrom(methods, callNextMethod, new, validObject, coerce)
+
+
+## BiocGenerics
+importFrom(BiocGenerics, updateObject, annotation, "annotation<-")
+
+## affyio
+importFrom(affyio, read.celfile.header, read.celfile)
+
+## Biostrings
+importClassesFrom(Biostrings, DNAStringSet)
+
+## graphics
+importFrom(graphics, plot)
+
+## Biobase
+importClassesFrom(Biobase, AnnotatedDataFrame, AssayData, eSet, MIAME,
+                  NChannelSet, Versions, VersionedBiobase, Versioned, SnpSet)
+
+importFrom(Biobase, assayDataElement, assayDataElementReplace,
+           assayDataNew, assayDataValidMembers,
+           assayDataElementNames, varLabels, isCurrent,
+	   testBioCConnection)
+
+importMethodsFrom(Biobase, annotatedDataFrameFrom, assayData,
+                  "assayData<-", combine, dims, experimentData,
+                  "experimentData<-", exprs, "exprs<-",
+		  protocolData,
+                  featureData, "featureData<-", featureNames, fData,
+		  "fData<-",
+                  fvarLabels, pData, "pData<-", phenoData,
+                  "phenoData<-", sampleNames, "sampleNames<-", se.exprs,
+                  "se.exprs<-", storageMode, "storageMode<-",
+                  classVersion,
+		  snpCall, snpCallProbability,
+                  'snpCall<-', 'snpCallProbability<-')
+
+## IRanges
+##importClassesFrom(IRanges, RangedData, DataTable, List, DataTableORNULL, Vector, Annotated)
+##importFrom(IRanges, IRanges, RangedData, RangedDataList,
+##	   countOverlaps,
+##	   ranges, values,
+##	   queryHits, subjectHits)
+##importMethodsFrom(IRanges, findOverlaps, as.matrix, elementLengths)
+
+##importClassesFrom(GenomicRanges, GRanges)
+import(IRanges)
+import(GenomicRanges)
+
+## ff
+## register open and close methods
+importFrom(ff, open.ff, close.ff, ff, ffdf)
+
+## foreach
+import(foreach)
+
+## BiocInstaller
+importFrom(BiocInstaller, biocinstallRepos)
+
+## utils
+importFrom(utils, packageDescription)
+
+##---------------------------------------------------------------------------
+## Export
+##---------------------------------------------------------------------------
+##
+##            classes
+##
+## PDInfo Classes
+exportClasses(AffyTilingPDInfo, AffyExpressionPDInfo, AffySNPPDInfo,
+              AffySNPCNVPDInfo, AffyGenePDInfo, AffyExonPDInfo,
+              NgsExpressionPDInfo, NgsTilingPDInfo, DBPDInfo,
+              ExpressionPDInfo, TilingPDInfo)
+
+##Feature-level Classes
+exportClasses(FeatureSet, ExpressionFeatureSet, SnpFeatureSet,
+              SnpCnvFeatureSet, TilingFeatureSet, ExonFeatureSet,
+              GeneFeatureSet)
+
+##SNP-level Classes
+exportClasses(AlleleSet, BeadStudioSet, oligoSnpSet, SnpSuperSet, CNSet,
+	      gSet, gSetList, RangedDataCopyNumber, RangedDataCNV, RangedDataCBS,
+	      RangedDataHMM, CopyNumberSet, GenomeAnnotatedDataFrame,
+	      BeadStudioSetList, BafLrrSetList, BafLrrSet,
+	      oligoSetList, SnpSet2)
+
+## list methods
+exportMethods(assayDataList, dims, featureDataList)
+
+## Ranged-Data methods
+exportMethods(numberProbes)
+
+##Misc
+exportClasses(ff_or_matrix)
+
+
+## EXPORTING.....
+##             methods
+##
+
+## Methods ...
+exportMethods(bothStrands, allele, calls, "calls<-", confs, "confs<-",
+              chromosome, "chromosome<-", copyNumber,
+              "copyNumber<-", cnConfidence, "cnConfidence<-", db,
+	      elementLengths, isSnp,
+              position, "position<-", sampleNames, A, B, "A<-", "B<-",
+	      "genomeBuild<-", getArm)
+
+## FeatureSet methods
+exportMethods(exprs)
+
+## PDInfo methods
+exportMethods(annotation, db, initialize, genomeBuild,
+              geometry, kind, manufacturer)
+
+## Some general methods
+exportMethods(getM, getA, annotatedDataFrameFrom, open, close)
+
+## CNSet methods
+exportMethods(batch, batchNames, "batchNames<-", coerce, flags, show,
+	      nu, phi, batchStatistics, "batchStatistics<-", baf, lrr,
+	      "baf<-", "lrr<-", coverage2,
+	      findOverlaps, state, openff, closeff, checkOrder,
+	      mean, updateObject,
+	      "sampleNames<-",
+	      GenomeAnnotatedDataFrameFrom,
+	      makeFeatureGRanges,
+	      clone)
+
+
+## EXPORTING....
+##             functions
+##
+
+## Functions for parallel operations
+export(pdPkgFromBioC, requireAnnotation, affyPlatforms, celfileDate, celfileName,
+       list.celfiles, is.ffmatrix, isPackageLoaded, ldStatus,
+       ldSetOptions, parStatus, ocProbesets, ocSamples, ldPath, getBar,
+       createFF, ocLapply,
+       splitIndicesByLength, splitIndicesByNode, initializeBigMatrix,
+       initializeBigVector, initializeBigArray)
+
+export(chromosome2integer, integer2chromosome, i2p, p2i, annotationPackages, checkExists,
+       chromosomePositionOrder, integerArray, integerMatrix, findOverlaps,
+       RangedDataCNV, RangedDataCBS, RangedDataHMM, library2, AssayDataList,
+       getSequenceLengths)
+
+
+### Deprecated
+export(setCluster, getCluster, delCluster, requireClusterPkgSet, requireClusterPkg)
+exportMethods(featuresInRange)
